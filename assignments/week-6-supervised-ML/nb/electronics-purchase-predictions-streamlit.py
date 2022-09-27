@@ -147,7 +147,7 @@ with tab3:
         # Use tab2 as a guide!  
         # Use columns to separate visualizations for models
         # Include a plot for local and global explanability!
-     
+
     st.header(model1_select)
     
     st.header(model2_select)
