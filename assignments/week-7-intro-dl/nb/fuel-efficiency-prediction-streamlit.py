@@ -12,9 +12,9 @@ st.image(img_fuel, width=700)
 st.markdown("<h1 style='text-align: center; color: black;'>Fuel Efficiency</h1>", unsafe_allow_html=True)
 
 # Import train dataset to DataFrame
-train_df = pd.read_csv("../dat/train.csv.gz", compression="gzip")
+train_df = pd.read_csv("../dat/train.csv")
 model_results_df = pd.read_csv("../dat/model_results.csv")
-
+shap_df = pd.read_csv("../dat/shap_values.csv")
 # Create sidebar for user selection
 with st.sidebar:
     # Add FB logo
@@ -64,27 +64,36 @@ with tab2:
     # Columns for side-by-side model comparison
     col1, col2 = st.columns(2)
 
+    st.header(model1_select)
+    model1_results = model_results_df[model_results_df["Model"] == model1_select]
+    st.dataframe(model1_results)
+
+    st.header(model2_select)
+    model2_results = model_results_df[model_results_df["Model"] == model2_select]
+    st.dataframe(model2_results)
+
     # Build the confusion matrix for the first model.
-    with col1:
-        st.header(model1_select)
-
-        # YOUR CODE GOES HERE!
 
 
-    # Build confusion matrix for second model
-    with col2:
-        st.header(model2_select)
-
-        # YOUR CODE GOES HERE!
 
 
 with tab3: 
     # YOUR CODE GOES HERE!
         # Use columns to separate visualizations for models
         # Include plots for local and global explanability!
-     
-    st.header(model1_select)
-    
-    st.header(model2_select)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.header(model1_select)
+
+        model1_shap_df = shap_df[shap_df["Model"] == model1_select]
+        st.dataframe(model1_shap_df)
+
+    # Build confusion matrix for second model
+    with col2:
+        st.header(model2_select)
+
+        model2_shap_df = shap_df[shap_df["Model"] == model2_select]
+        st.dataframe(model2_shap_df)
 
     
