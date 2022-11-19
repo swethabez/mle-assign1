@@ -265,4 +265,44 @@ Note that the second command requires `vim`.
     ```
     Stopped container mycontainer
     ```
+###############################
 
+1. What does it mean to create a Docker image and why do we use Docker images?
+
+A docker image is a template containing instructions for creating a container that can run on a Docker platform. It is a convenient way to package applications and preconfigured server environments, which can be shared publicly with other Docker users. Put simply, a docker image is made up of a collection of files that bundle together all the essentials – such as installations, application code, and dependencies – required to configure a fully operational container environment.
+
+Advantage being:
+
+* fast deployment, ease of creating new instances, and faster migrations. 
+* Ease of moving and maintaining applications. 
+* Better security, less access needed to work with the code running inside containers, and fewer software dependencies.
+
+1. Please explain what is the difference from a Container vs a Virtual Machine?
+
+Virtualization is the process in which a system singular resource like RAM, CPU, Disk, or Networking can be ‘virtualized’ and represented as multiple resources. The key differentiator between containers and virtual machines is that virtual machines virtualize an entire machine down to the hardware layers and containers only virtualize software layers above the operating system level.
+
+Containers are lightweight software packages that contain all the dependencies required to execute the contained software application. These dependencies include things like system libraries, external third-party code packages, and other operating system level applications. The dependencies included in a container exist in stack levels that are higher than the operating system.
+Pros:
+
+1. iteration speed
+2. robust eco system
+
+Cons:
+
+1. shared host system -  vulnerabilities in hardware
+
+1. What are 5 examples of container orchestration tools (please list tools)?
+
+Container orchestration tools provide a framework for managing containers and microservices architecture at scale. Popular orchestration tools include:
+
+1. Kubernetes
+2. Openshift
+3. Hasicorp
+4. Docker swarm
+5. Amazon Elastic Container Service (Amazon ECS)
+6. Mirantis
+7. Centurion
+
+1. How does a Docker image differ from a Docker container? 
+
+The key difference between a Docker image Vs a container is that a Docker image is a read-only immutable template that defines how a container will be realized. A Docker container is a runtime instance of a Docker image that gets created when the $ docker run command is implemented meaning images can exist without containers, whereas a container needs to run an image to exist. Therefore, containers are dependent on images and use them to construct a run-time environment and run an application. 
